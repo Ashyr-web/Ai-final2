@@ -1,0 +1,111 @@
+/* Mobile-first styles for ScaleIT landing page */
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#2563eb;
+  --accent-2:#06b6d4;
+  --surface:#0b1220;
+  --radius:12px;
+  --glass: rgba(255,255,255,0.03);
+  --max-width:1100px;
+  --gap:24px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:linear-gradient(180deg,#051026 0%, #071226 100%);color:#e6eef5;line-height:1.5}
+.container{width:calc(100% - 32px);max-width:var(--max-width);margin:0 auto}
+
+/* Header */
+.site-header{backdrop-filter: blur(6px);position:sticky;top:0;z-index:40;padding:10px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.logo img{display:block}
+.brand{font-weight:600}
+.nav-toggle{background:transparent;border:0;padding:8px;display:inline-flex;align-items:center}
+.hamburger{width:22px;height:2px;background:#cfe7ff;display:block;position:relative}
+.hamburger::after,.hamburger::before{content:'';position:absolute;left:0;right:0;height:2px;background:inherit}
+.hamburger::before{top:-6px}
+.hamburger::after{top:6px}
+.primary-nav{display:none}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.nav-list a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
+.nav-list a:hover{color:white;background:var(--glass)}
+.cta-link{font-weight:600;color:var(--accent)}
+
+/* Hero */
+.hero{padding:48px 0}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
+.headline{font-size:28px;margin:0 0 10px;font-weight:700}
+.subhead{color:var(--muted);margin:0 0 18px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:10px 14px;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;transition:transform .15s ease,box-shadow .15s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(3,19,60,.45)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.06);color:var(--muted)}
+.trust{display:flex;gap:12px;color:var(--muted);margin-top:16px;font-size:14px}
+.hero-visual img{width:100%;height:auto;border-radius:12px}
+
+/* Sections */
+.section{padding:36px 0}
+.section-title{font-size:20px;margin:0 0 6px}
+.section-sub{color:var(--muted);margin:0 0 18px}
+.cards{display:grid;grid-template-columns:1fr;gap:16px}
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,.5);transition:transform .15s ease}
+.card:hover{transform:translateY(-6px)}
+.card-head{font-weight:700;margin-bottom:6px}
+
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.steps li{background:var(--surface);padding:14px;border-radius:10px}
+
+.reasons{display:grid;gap:12px}
+.reasons li{background:var(--surface);padding:14px;border-radius:10px}
+
+/* Testimonials */
+.testimonials-wrap{display:flex;align-items:center;gap:12px}
+.t-btn{background:transparent;border:0;color:var(--muted);font-size:28px;padding:8px;cursor:pointer}
+.testimonials-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr;gap:12px;overflow:hidden}
+.testimonial{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px}
+.avatar{width:48px;height:48px;border-radius:50%;display:block;margin-bottom:8px}
+.testimonial blockquote{margin:0 0 8px;color:var(--muted)}
+
+/* Contact form */
+.form-grid{display:grid;gap:12px}
+.form-field{display:flex;flex-direction:column}
+.form-field.full{grid-column:1/-1}
+.label{font-size:13px;color:var(--muted);margin-bottom:6px}
+input,textarea{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:inherit;padding:10px;border-radius:8px}
+textarea{min-height:120px}
+.error{color:#ffb4b4;font-size:13px;height:18px}
+.success-message{background:rgba(34,197,94,0.12);color:#b6f0c7;padding:8px;border-radius:8px}
+.form-actions{display:flex;gap:12px;align-items:center}
+
+/* Footer */
+.site-footer{padding:18px 0;border-top:1px solid rgba(255,255,255,0.03);margin-top:32px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.site-footer a{color:var(--muted);text-decoration:none}
+
+/* Larger screens */
+@media(min-width:768px){
+  .primary-nav{display:block}
+  .nav-list{flex-direction:row}
+  .hero-grid{grid-template-columns:1fr 480px;gap:36px}
+  .headline{font-size:36px}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .testimonials-list{grid-template-columns:1fr 1fr 1fr}
+  .form-grid{grid-template-columns:1fr 1fr}
+  .form-field.full{grid-column:1/-1}
+}
+
+/* Larger desktop */
+@media(min-width:1100px){
+  .container{width:calc(100% - 80px)}
+}
+
+/* Smooth scroll */
+html{scroll-behavior:smooth}
+
+/* Utility */
+.visually-hidden{position:absolute;left:-9999px}
